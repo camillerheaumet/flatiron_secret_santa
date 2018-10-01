@@ -1,0 +1,12 @@
+<h1>Flatiron Secret Santa</h1>
+
+<hr>
+  <h1>Login</h1>
+
+  <%= form_for @user, url: login_path, method: :post do |f| %>
+    Username: <%= f.text_field :name %><br/><br/>
+    Password: <%= f.password_field :password %><br/><br/>
+    <%= f.submit "Submit" %>
+  <% end %>
+
+  <h4>New? <%= link_to "Register Here", signup_path %></h4>

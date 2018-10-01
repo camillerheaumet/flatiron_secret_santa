@@ -8,16 +8,17 @@ Rails.application.routes.draw do
 
     #gifts
     #Cannot create gift with same name
+    get '/wishlist', to: 'gifts#index'
     get '/gifts', to: 'gifts#new'
     post '/gifts', to: 'gifts#create'
     delete '/gifts/:id', to: 'gifts#destroy'
 
-    #wishlist
-    #If has wishlist cannot create a new one
-    get '/wishlist', to: 'gifts#new'
-    post '/wishlist', to: 'gifts#create'
-    #add edit wishlist
-    delete '/wishlist/:id', to: 'gifts#destroy'
+    # #wishlist
+    # #If has wishlist cannot create a new one
+    # get '/wishlist', to: 'gifts#new'
+    # post '/wishlist', to: 'gifts#create'
+    # #add edit wishlist
+    # delete '/wishlist/:id', to: 'gifts#destroy'
 
     #User signup
     get '/signup', to: 'users#new'

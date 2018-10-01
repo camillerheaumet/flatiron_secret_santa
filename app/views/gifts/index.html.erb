@@ -1,0 +1,9 @@
+<h1><%=@user.name%>'s Wishlist</h1>
+
+<%= link_to "New wish", new_gift_path %>
+
+<ul>
+  <% @gifts.each do |gift| %>
+    <li><%= link_to gift.name, gift %></li>
+  <% end %>
+</ul>

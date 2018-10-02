@@ -12,7 +12,7 @@
 
 #group1
 
-ali = User.create(name: "Ali", email: "Makdaa1@gmail.com", password_digest: nil)
+ali = User.create(name: "Ali", email: "Makdaa1@gmail.com", password: "hello", password_confirmation: "hello")
 
 group_one = Group.create(name: "lazy boys", budget: 100)
 

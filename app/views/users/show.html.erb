@@ -2,12 +2,24 @@
 
 
 <%= link_to "Create a Secret Santa group!", new_group_path %><br>
-<%= link_to "Creat your very own wishlist!", gifts_path %>
-
-<h1>Your wishlist</h1>
+<%= link_to "Creat your very own wishlist!", new_gift_path %>
 
 
-<h1>Your groups</h1>
+<% if current_user.gifts.length > 0 %>
+  <h1>Your wishlist</h1>
+  <ul>
+    <% current_user.gifts.each do |gift| %>
+      <li><%= link_to gift.name, gift %></li>
+      <%= link_to "Edit Gift", edit_gift_path(gift) %>
+      <%= form_tag gift_path(gift), method: "delete" do  %>
+        <%= submit_tag "Delete Gift" %>
+      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+  <h1>Your wishlist is empty!</h1>
+<% end %>
+
 
 <% if @user.groups %>
 <% @user.groups.each do |group| %>

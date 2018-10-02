@@ -1,4 +1,10 @@
 <h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name}" %> </h1>
 
 
-<%= link_to "Create a Secret Santa group!", new_group_path %>
+<%= link_to "Create a Secret Santa group!", new_group_path %><br>
+<%= link_to "Creat your very own wishlist!", gifts_path %>
+
+<h1>Your wishlist</h1>
+<% @user.gifts.each do |gift| %>
+  <%= gift.name %>
+<% end %>

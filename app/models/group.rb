@@ -1,9 +1,10 @@
 class Group < ApplicationRecord
   has_many :invitations
   has_many :users, through: :invitations
+  validates :name, presence: true
+  accepts_nested_attributes_for :users
 
-
-
+  
 
 
   #Step 1

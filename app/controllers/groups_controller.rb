@@ -2,20 +2,30 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    7.times { @group.users.build}
   end
 
   def create
-    @group = Group.new(group_params)
-    if @group.save
-      redirect_to author_path(@model)
-    else
-      #When new page renders, the @error object with params is passed to the view
-      render :new
-    end
+    raise params.inspect
+    #Create the group
+    #Create a user
+    redirect to "acceptance"
   end
 
   # def show
   # end
+
+  def acceptance
+    #if they are on this controller, accepted? == false
+    #create a checkbox, that allows them to toggle to true or reject invitation
+    #If toggle true, change accepted to true and direct to controller: user action: show
+    #If toggle false, remove user from group
+  end
+
+  def show
+    #Once we have created a group, we create a show page
+    #before action redirect them to
+  end
 
   def edit
 
@@ -32,7 +42,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, user_attributes: [:name, :email])
   end
 
 

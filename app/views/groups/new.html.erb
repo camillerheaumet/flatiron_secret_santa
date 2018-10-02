@@ -1,12 +1,5 @@
 
 <%= form_for @group, url: groups_path, method: :post do |f| %>
-  <h3><%= f.label "Name your group!" %> <%= f.text_field :name %></h3>
-  <br>
-  <h4>Add friends to your group:</h4>
-  <p>You can add 7 people to the group!</p>
-  <%= f.fields_for :users do |categories_fields| %>
-    <p>Friends full name: <%= categories_fields.text_field :name %></p>
-    <p>Friends email address: <%= categories_fields.text_field :email %></p><br>
-  <% end %>
+  <h3>Step 1: <%= f.label "name your group!" %> <%= f.text_field :name %></h3>
   <%= f.submit %>
 <% end %>

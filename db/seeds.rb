@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+<<<<<<< HEAD
 # user_1 = User.create("Cam", "cam@exemple.com")
 # user_2 = User.create("Jade", "jade@exemple.com")
 # user_3 = User.create("Etienne", "etienne@exemple.com")
@@ -22,3 +23,9 @@
 # group_2 = Group.create("Firends")
 # group_3 = Group.create("Bros and sis")
 # group_4 = Group.create("Job")
+=======
+# ali = User.create(name: "Ali", email: "Makdaa1@gmail.com")
+# cam = User.create(name: "Cam", email: "cam@gmail.com")
+# dan = User.create(name: "Dan", email: "dan@gmail.com")
+# bobby = User.create(name: "Bobby", email: "bobby@gmail.com")
+>>>>>>> 1e181042914eb314725dd47af8759e81d276531c

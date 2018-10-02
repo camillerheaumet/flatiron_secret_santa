@@ -1,15 +1,16 @@
 class SessionsController < ApplicationController
 
+
   def new
   end
 
   def create
     user = User.find_by(name: params[:user][:name])
     authenticated = user.try(:authenticate, params[:user][:password])
-    return redirect_to login_path unless authenticated
+    return redirect_to root_path unless authenticated
     @user = user
     session[:user_id] = @user.id
-    redirect_to controller: 'welcome', action: 'home'
+    redirect_to controller: 'users', action: 'show'
   end
 
   # def create
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
   #   session[:user_id] = @user.id
   #   redirect_to @user
   # end
+
 
   def destroy
     session.delete :user_id

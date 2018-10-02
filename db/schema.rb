@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2018_10_01_103831) do
 
   create_table "gifts", force: :cascade do |t|
     t.string "name"
-    t.string "link"
-    t.integer "wish_list_id"
+    t.string "description"
+    t.integer "wishlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,17 +26,10 @@ ActiveRecord::Schema.define(version: 2018_10_01_103831) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "invited_users", force: :cascade do |t|
-    t.integer "group_id"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_groups", force: :cascade do |t|
+  create_table "invitations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "group_id"
-    t.integer "admin_id"
+    t.boolean "accepted?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_103831) do
   end
 
   create_table "wishlists", force: :cascade do |t|
+    t.string "name"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

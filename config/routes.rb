@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 =======
     resources :gifts
     resources :groups
+    get '/add_user', to: 'groups#add_user'
+    post '/add_user', to: 'groups#add_user_to_group'
 
     #sessions
     root 'sessions#new'

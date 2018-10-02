@@ -2,14 +2,30 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    7.times { @group.users.build}
+    # 7.times { @group.users.build}
   end
 
   def create
-    raise params.inspect
-    #Create the group
-    #Create a user
-    redirect to "acceptance"
+    @group = Group.new(group_params)
+    if @group.save
+      session[:group_id] = @group.id
+      redirect_to add_user_path
+    else
+      #When new page renders, the @error object with params is passed to the view
+      render :new
+    end
+  end
+
+  def add_user
+    @group = Group.find_by(id: session[:group_id])
+    @group.users << @user #add the person who has created the group
+    @group.users.build
+  end
+
+  def add_user_to_group
+    @user = User.new(group_params) #add new invted users to group
+    redirect_to show_path
+    # name: params[:group]["users_attributes"]["0"]["name"], email: params[:group]["users_attributes"]["0"]["email"]
   end
 
   # def show
@@ -42,8 +58,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, user_attributes: [:name, :email])
+    params.require(:group).permit(:name, categories_attributes: [:name, :email])
   end
-
 
 end

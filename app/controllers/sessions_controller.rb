@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 
   def new
+    #add a field, if user has invitation pending, display link to controller: group, action: "acceptance"
   end
 
   def create

@@ -2,15 +2,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  resources :gifts
-  resources :groups
-  get '/add_user', to: 'groups#add_user'
-  post '/add_user', to: 'groups#add_user_to_group'
 
-  #sessions
-  root 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+    resources :gifts
+    resources :groups
+    get '/add_user', to: 'groups#add_user'
+    post '/add_user', to: 'groups#add_user_to_group'
+
+    #sessions
+    root 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
+
 
   #User signup
   get '/signup', to: 'users#new'
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   get '/show', to: 'users#show'
 
 
-# 
+#
 # <<<<<<< HEAD
 #     #user homepage
 #     root 'welcome#home'

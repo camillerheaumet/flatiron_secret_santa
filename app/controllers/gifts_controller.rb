@@ -13,12 +13,11 @@ class GiftsController < ApplicationController
   end
 
   def create
-  
+
     #info would come form the form
     # @user = User.find_by(id: session[:user_id])
-    @gift = @user.gifts.build(name: params[:gift][:name], description: params[:gift][:descripton])
-    @gift.save
-    redirect_to controller: 'gifts', action: 'index'
+    @user.gifts.build(name: params[:gift][:name], description: params[:gift][:description])
+    redirect_to show_path
   end
 
   def edit

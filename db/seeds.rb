@@ -5,27 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-<<<<<<< HEAD
-# user_1 = User.create("Cam", "cam@exemple.com")
-# user_2 = User.create("Jade", "jade@exemple.com")
-# user_3 = User.create("Etienne", "etienne@exemple.com")
-# user_4 = User.create("William", "william@exemple.com")
-# user_5 = User.create("Kali", "kali@exemple.com")
-# user_6 = User.create("Gab", "gab@exemple.com")
-# user_7 = User.create("Colin", "colin@exemple.com")
-# user_8 = User.create("Coralee", "coralee@exemple.com")
-# user_9 = User.create("Michele", "michele@exemple.com")
-# user_10 = User.create("Roberto", "roberto@exemple.com")
 #
-# group_1 = Group.create("Familly")
-# group_2 = Group.create("Firends")
-# group_3 = Group.create("Bros and sis")
-# group_4 = Group.create("Job")
-=======
-# ali = User.create(name: "Ali", email: "Makdaa1@gmail.com")
-# cam = User.create(name: "Cam", email: "cam@gmail.com")
-# dan = User.create(name: "Dan", email: "dan@gmail.com")
-# bobby = User.create(name: "Bobby", email: "bobby@gmail.com")
->>>>>>> 1e181042914eb314725dd47af8759e81d276531c
+
+
+
+
+#group1
+
+ali = User.create(name: "Ali", email: "Makdaa1@gmail.com", password_digest: nil)
+
+group_one = Group.create(name: "lazy boys", budget: 100)
+
+wishlist_one = Wishlist.create(user_id: ali.id)
+
+iphone = Gift.create(name: "iPhone", price: 10, description: "Over priced", wishlist_id: wishlist_one.id)
+
+
+
+
+
+
+#group2
+
+
+#group3

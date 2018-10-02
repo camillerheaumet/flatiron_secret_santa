@@ -1,8 +1,8 @@
 <h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name}!" %> </h1>
 
 
-<%= link_to "Create a Secret Santa group!", new_group_path %>
-<%= link_to "Add gift to your wishlist", new_gift%>
+<%= link_to "Create a Secret Santa group!", new_group_path %><br>
+<%= link_to "Creat your very own wishlist!", gifts_path %>
 
 <% if current_user.gifts > 0 %>
   <h1>Your wishlist</h1>
@@ -17,4 +17,16 @@
   </ul>
 <% else %>
   <h1>Your wishlist is empty!</h1>
+  <% end %>
+
+
+<h1>Your groups</h1>
+
+<% if @user.groups %>
+<% @user.groups.each do |group| %>
+  <p><%= group.name %></p>
+  <ul>
+    <li><%= group.users.name %></li>
+  </ul>
+
 <% end %>

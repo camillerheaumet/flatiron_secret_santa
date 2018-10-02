@@ -18,11 +18,14 @@ class GroupsController < ApplicationController
 
   def add_user
     @group = Group.find_by(id: session[:group_id])
+    @group.users << @user #add the person who has created the group
     @group.users.build
   end
 
   def add_user_to_group
-    raise params.inspect
+    @user = User.new(group_params) #add new invted users to group
+    redirect_to show_path
+    # name: params[:group]["users_attributes"]["0"]["name"], email: params[:group]["users_attributes"]["0"]["email"]
   end
 
   # def show
@@ -55,8 +58,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, categories_attributes: [:name, :email])
   end
-
 
 end

@@ -6,8 +6,6 @@ class GiftsController < ApplicationController
     #name field
     #description field
 
-
-
   end
 
   def create
@@ -31,6 +29,6 @@ class GiftsController < ApplicationController
 
   end
 
-  private 
+  private
 
 end

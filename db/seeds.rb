@@ -5,9 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
 
 
-# ali = User.create(name: "Ali", email: "Makdaa1@gmail.com")
-# cam = User.create(name: "Cam", email: "cam@gmail.com")
-# dan = User.create(name: "Dan", email: "dan@gmail.com")
-# bobby = User.create(name: "Bobby", email: "bobby@gmail.com")
+
+
+#group1
+
+ali = User.create(name: "Ali", email: "Makdaa1@gmail.com", password_digest: nil)
+
+group_one = Group.create(name: "lazy boys", budget: 100)
+
+wishlist_one = Wishlist.create(user_id: ali.id)
+
+iphone = Gift.create(name: "iPhone", price: 10, description: "Over priced", wishlist_id: wishlist_one.id)
+
+
+
+
+
+
+#group2
+
+
+#group3
+
+
+#group4

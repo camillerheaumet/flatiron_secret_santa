@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_101537) do
+ActiveRecord::Schema.define(version: 2018_10_01_103831) do
 
   create_table "gifts", force: :cascade do |t|
     t.string "name"
+    t.integer "price"
     t.string "description"
     t.integer "wishlist_id"
     t.datetime "created_at", null: false
@@ -22,14 +23,15 @@ ActiveRecord::Schema.define(version: 2018_10_02_101537) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
+    t.integer "budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "accepted?"
   end
 
   create_table "invitations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "group_id"
+    t.boolean "accepted?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +45,6 @@ ActiveRecord::Schema.define(version: 2018_10_02_101537) do
   end
 
   create_table "wishlists", force: :cascade do |t|
-    t.string "name"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

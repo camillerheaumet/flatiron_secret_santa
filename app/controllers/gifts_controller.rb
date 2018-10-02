@@ -16,8 +16,8 @@ class GiftsController < ApplicationController
     @gift = Gift.create(gift_params)
     #info would come form the form
     # @user = User.find_by(id: session[:user_id])
-    current_user.gifts << @gift
-    redirect_to @gift
+    @user.gifts.build(name: params[:gift][:name], description: params[:gift][:description])
+    redirect_to show_path
   end
 
   def edit

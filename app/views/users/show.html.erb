@@ -1,9 +1,8 @@
-<h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name}" %> </h1>
+<h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name}!" %> </h1>
 
 
 <%= link_to "Create a Secret Santa group!", new_group_path %><br>
 <%= link_to "Creat your very own wishlist!", new_gift_path %>
-
 
 <% if current_user.gifts.length > 0 %>
   <h1>Your wishlist</h1>
@@ -28,5 +27,4 @@
     <li><%= group.users.name %></li>
   </ul>
 
-<% end %>
 <% end %>

@@ -29,6 +29,3 @@ iphone = Gift.create(name: "iPhone", price: 10, description: "Over priced", wish
 
 
 #group3
-
-
-#group4

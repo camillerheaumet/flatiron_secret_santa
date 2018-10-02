@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     #if user.group if invition.accepted? == yes, we display group
     #@user.groups.select {|group| group.accepted == true }
     
-
   end
 
 

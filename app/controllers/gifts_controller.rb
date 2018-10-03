@@ -13,7 +13,7 @@ class GiftsController < ApplicationController
   end
 
   def create
-    @gift = Gift.create(gift_params)
+
     #info would come form the form
     # @user = User.find_by(id: session[:user_id])
     @user.gifts.build(name: params[:gift][:name], description: params[:gift][:description])

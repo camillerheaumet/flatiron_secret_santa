@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @wishlist = @user.wishlist.all if @user.wishlist
+    @wishlist = @user.wishlist if @user.wishlist
     #We can then iterate over all gorups to show each memeber ina users groups
     @groups = @user.groups if @user.groups
 
     #if user.group if invition.accepted? == yes, we display group
     #@user.groups.select {|group| group.accepted == true }
-    
+
   end
 
 

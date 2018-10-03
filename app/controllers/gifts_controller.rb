@@ -24,7 +24,7 @@ class GiftsController < ApplicationController
   end
 
   def update
-    @gift.update(name: params[:gift][:name], price: params[:gift][:price], description: params[:gift][:description], wishlist_id: @wishlist.id)
+    @gift.update(name: params[:gift][:name], price: params[:gift][:price], description: params[:gift][:description])
     redirect_to gift_path(@gift)
   end
 

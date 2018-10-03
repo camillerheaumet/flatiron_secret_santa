@@ -24,9 +24,4 @@ class Group < ApplicationRecord
 
   end
 
-
-  def random_match
-  end
-
-
 end

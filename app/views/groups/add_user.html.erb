@@ -1,11 +1,9 @@
 
 <h3>Hi <%= current_user.name %>! </h3>
-<%= form_for @group, url: add_user_path, method: :post do |f| %>
+<%= form_for @user, url: add_user_path, method: :post do |f| %>
   <h1>Add friends to your group!</h1>
-  <%= f.fields_for :users do |c| %>
-    <p>Name: <%= c.text_field :name %></p>
-    <p>Email: <%= c.text_field :email %></p>
-  <% end %>
+    <p>Name: <%= f.text_field :name %></p>
+    <p>Email: <%= f.text_field :email %></p>
   <%= f.submit "Add friend" %>
 <% end %> <br>
 

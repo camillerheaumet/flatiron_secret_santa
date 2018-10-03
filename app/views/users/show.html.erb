@@ -1,10 +1,10 @@
-<h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name}!" %> </h1>
+<h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name.capitalize}!" %> </h1>
 
 
 <%= link_to "Create a Secret Santa Event!", new_group_path %><br>
 <%= link_to "Creat your very own wishlist!", new_gift_path %>
 
-<% if current_user.gifts.empty? %>
+<% if !current_user.gifts.empty? %>
   <h3>Your wishlist</h3>
   <ul>
     <% current_user.gifts.each do |gift| %>

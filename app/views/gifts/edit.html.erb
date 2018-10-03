@@ -2,8 +2,18 @@
 
 <%= link_to "go back to the gift", @gift %>
 
-<%= render "form" %>
+<%= form_for @gift, url: gift_path, method: :patch do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %><br>
+ <%= f.label "price in £:" %>
+ <%= f.text_field :price %><br>
+ <%= f.label :description %>
+ <%= f.text_field :description %><br>
+ <%= f.submit %>
+<% end %>
 
 <%= form_tag gift_path(@gift), method: "delete" do  %>
   <%= submit_tag "Delete Gift" %>
 <% end %>
+
+<%= link_to "Go back to home page", show_path %>

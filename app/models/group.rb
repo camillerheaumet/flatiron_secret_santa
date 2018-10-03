@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_many :draws
   accepts_nested_attributes_for :users
 
-  #has_many
+  def random
 
   def draw_order
     users = self.users
@@ -18,6 +18,9 @@ class Group < ApplicationRecord
     end
   end
 
+    #Step 4
+    #make random draw
 
+  end
 
 end

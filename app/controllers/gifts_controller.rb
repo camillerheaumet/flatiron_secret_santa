@@ -16,9 +16,6 @@ class GiftsController < ApplicationController
   def create
     @wishlist = Wishlist.find_or_create_by(user: current_user)
     @gift = Gift.new(name: params[:gift][:name], price: params[:gift][:price], description: params[:gift][:description], wishlist_id: @wishlist.id)
-    #info would come form the form
-    # @user = User.find_by(id: session[:user_id])
-    # @gift = @user.gifts.build(name: params[:gift][:name], description: params[:gift][:description])
     @gift.save
     redirect_to show_path
   end

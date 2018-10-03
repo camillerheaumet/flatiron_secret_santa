@@ -10,7 +10,7 @@ class GiftsController < ApplicationController
   end
 
   def new
-    @gift = Gift.new
+    @gift = Gift.newdawddwad
   end
 
   def create

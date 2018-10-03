@@ -10,5 +10,12 @@
   <% end %>
 </ul>
 <%= button_to "Add Participants", add_user_path, method: :get %><br>
+<%= button_to "Make draw", draw_path, method: :post %><br>
 
-<%= button_to "Add existing users",  %>
+
+<% if @draws %>
+<h1>Hello</h1>
+  <% @draws.each do |draw| %>
+      <%= "#{draw[0].name} == #{draw[1].name}"  %>
+  <% end %>
+<% end %>

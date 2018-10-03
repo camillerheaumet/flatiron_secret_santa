@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :groups
     get '/groups/:id/add_user', to: 'groups#add_user', as: 'add_user'
     post '/groups/:id/add_user', to: 'groups#create_user'
+    post '/groups/:id/draw', to: 'groups#make_draw', as: 'draw'
 
     #sessions
     root 'sessions#new'

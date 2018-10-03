@@ -8,7 +8,7 @@
   <h1>Your wishlist</h1>
   <ul>
     <% current_user.gifts.each do |gift| %>
-      <li><%= link_to gift.name, gift %></li>
+      <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
       <%= link_to "Edit Gift", edit_gift_path(gift) %>
       <%= form_tag gift_path(gift), method: "delete" do  %>
         <%= submit_tag "Delete Gift" %>

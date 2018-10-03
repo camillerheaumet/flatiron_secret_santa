@@ -12,6 +12,16 @@ class SessionsController < ApplicationController
     @user = user
     session[:user_id] = @user.id
     redirect_to controller: 'users', action: 'show'
+
+    #dans code
+    # user = User.find_by(username: params[:username])
+    # if user && user.authenticate(params[:password])
+    #   session[:user_id] = user.id
+    #   redirect_to controller: 'users', action: 'show'
+    # else
+    #   flash[:errors] = ["Invalid username or password"]
+    #   redirect_to root_path
+    # end
   end
 
   # def create

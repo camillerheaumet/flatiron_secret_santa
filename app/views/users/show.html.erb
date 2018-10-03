@@ -1,13 +1,14 @@
 <h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name}!" %> </h1>
 
 
-<%= link_to "Create a Secret Santa group!", new_group_path %><br>
+<%= link_to "Create a Secret Santa Event!", new_group_path %><br>
 <%= link_to "Creat your very own wishlist!", new_gift_path %>
 
-<% if current_user.gifts.length > 0 %>
-  <h1>Your wishlist</h1>
+<% if current_user.gifts.empty? %>
+  <h3>Your wishlist</h3>
   <ul>
     <% current_user.gifts.each do |gift| %>
+    <%= gift.name %>
       <li><%= link_to gift.name, gift %></li>
       <%= link_to "Edit Gift", edit_gift_path(gift) %>
       <%= form_tag gift_path(gift), method: "delete" do  %>
@@ -16,15 +17,16 @@
     <% end %>
   </ul>
 <% else %>
-  <h1>Your wishlist is empty!</h1>
+  <h3>Your wishlist is empty!</h3>
 <% end %>
 
 
-<% if @user.groups %>
-<% @user.groups.each do |group| %>
-  <p><%= group.name %></p>
-  <ul>
-    <li><%= group.users.name %></li>
-  </ul>
-
+<% if !@user.groups.empty? %>
+  <% current_user.groups.each do |group| %>
+    <h4><%= group.name %></h4>
+  <% end %>
+  <% else %>
+  <h3>You are not registered to any groups!</h3>
 <% end %>
+
+<%= button_to "Logout", logout_path, method: :delete %><br>

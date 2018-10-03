@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
     resources :gifts
     resources :groups
-    get '/add_user', to: 'groups#add_user'
-    post '/add_user', to: 'groups#add_user_to_group'
+    get '/groups/:id/add_user', to: 'groups#add_user', as: 'add_user'
+    post '/groups/:id/add_user', to: 'groups#create_user'
 
     #sessions
     root 'sessions#new'

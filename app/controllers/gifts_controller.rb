@@ -16,8 +16,18 @@ class GiftsController < ApplicationController
 
     #info would come form the form
     # @user = User.find_by(id: session[:user_id])
-    @user.gifts.build(name: params[:gift][:name], description: params[:gift][:description])
+    # @gift = Gift.new(gift_params)
+    # if @gift.save
+    #   redirect_to show_path
+    # else
+    #   render :new
+    # end
+    # @gift = Gift.create(gift_params)
+    @gift = Gift.create(name: params[:gift][:name], price: params[:gift][:price], description: params[:gift][:description])
     redirect_to show_path
+    # @gift = @user.gifts.build(name: params[:gift][:name], description: params[:gift][:description])
+    # @gift.save
+    # redirect_to show_path
   end
 
   def edit

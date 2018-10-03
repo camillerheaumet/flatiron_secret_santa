@@ -5,9 +5,5 @@ class User < ApplicationRecord
   has_many :gifts, through: :wishlist
   has_secure_password
 
-  def create_a_group
-    Group.new(self, more_details)
-  end
-
 
 end

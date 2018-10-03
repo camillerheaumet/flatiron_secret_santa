@@ -6,19 +6,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    return redirect_to root_path unless @user.save
+    return redirect_to root_path flash[:errors] = ["Invalid username or password"] unless @user.save
     session[:user_id] = @user.id
     redirect_to controller: 'users', action: 'show'
   end
 
   def show
-    @wishlist = @user.wishlist.all if @user.wishlist
-    #We can then iterate over all gorups to show each memeber ina users groups
     @groups = @user.groups if @user.groups
-
+    
     #if user.group if invition.accepted? == yes, we display group
     #@user.groups.select {|group| group.accepted == true }
-    
+
   end
 
 

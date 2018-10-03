@@ -1,5 +1,6 @@
 
 <%= form_for @group, url: groups_path, method: :post do |f| %>
   <h3>Step 1: <%= f.label "name your group!" %> <%= f.text_field :name %></h3>
-  <%= f.submit %>
+  <h3>Step 2: <%= f.label "Set max individual budget:"%> <%= f.text_field :budget %></h3>
+  <h4><%= f.submit "Create group" %> </h4>
 <% end %>

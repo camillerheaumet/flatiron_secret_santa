@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_103831) do
+ActiveRecord::Schema.define(version: 2018_10_03_133503) do
+
+  create_table "draws", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "giver_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gifts", force: :cascade do |t|
     t.string "name"

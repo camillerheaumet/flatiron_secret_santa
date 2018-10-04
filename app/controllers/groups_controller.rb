@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
       Invitation.create(user_id: @user.id, group_id: @group.id, accepted?: false)
       #@group.users << current_user
       # Invitation.create(user_id: current_user.id, group_id: @group.id, accepted?: false)
+      @group.users << current_user
       redirect_to group_path(@group.id)
     else
       #When new page renders, the @error object with params is passed to the view
@@ -47,11 +48,16 @@ class GroupsController < ApplicationController
 
   def make_draw
     @group = Group.find(params[:id])
-    @draws = @group.draw_order
-      # send_draw(@group)
-    render :show
-    # redirect_to group_path(@group.id)
-    #call send draw
+    if @group.users.length > 4
+      @draws = @group.draw_order
+        # send_draw(@group)
+      render :show
+      # redirect_to group_path(@group.id)
+      #call send draw
+    else
+      flash[:errors] = ["You need at least 5 participants. Please add #{5-@group.users.length} more participants."]
+      redirect_to group_path(@group)
+    end
   end
 
   def edit

@@ -14,7 +14,9 @@
  *= require_self
  */
 
- html {
+@import "bootstrap";
+
+html {
   font-size: 16px; /*set root height*/
   font-family: 'Open Sans', sans-serif;
 }
@@ -23,7 +25,7 @@ a {
   text-decoration: none;
 }
 
- header div {
+header div {
   display: flex;
   justify-content: space-between; /*push nav link to right*/
   color: white;
@@ -164,7 +166,7 @@ header .logged_out span {
   width: 20rem;
   margin-left: auto;
   margin-right: auto;
-  height:
+  // height:
 }
 
 .create_group_form h4, h3 {

@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   has_many :draws
   accepts_nested_attributes_for :users
 
-  def random
+
 
   def draw_order
     users = self.users
@@ -16,11 +16,6 @@ class Group < ApplicationRecord
       draw = users.zip(users.rotate)
       return draw
     end
-  end
-
-    #Step 4
-    #make random draw
-
   end
 
 end

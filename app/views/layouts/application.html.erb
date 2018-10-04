@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html style="
-    box-shadow: inset 0 0 20px 15px red;">
+<html>
   <head>
     <title>FlatironSecretSanta</title>
     <%= csrf_meta_tags %>
@@ -10,9 +9,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style= "
-  margin: 20px;
-  font: 100% Helvetica, sans-serif">
+  <header>
+      <div>
+        <div>
+          <!--Logo to display on small screen-->
+          <span class="logo"><%= link_to(image_tag('fss.png'), root_path) %></span>
+
+        </div>
+        <nav>
+            <!--ID attibute used to target for media queries-->
+            <% if logged_in? %>
+              <div class="logged_in">
+                <span>Hi <%= current_user.name %>! </span>
+
+                <span><%= link_to "Your account", show_path %> </span>
+                <span> <%= link_to "Logout", logout_path, method: :delete %> </span>
+              </div>
+            <% else %>
+              <div class="logged_out">
+                <span> <%= link_to "Sign Up", signup_path %> </span>
+                <span> <%= link_to "Login", login_path %> </span>
+              </div>
+            <% end %>
+        </nav>
+      </div>
+    </header>
+
+  <body>
     <%= yield %>
   </body>
 </html>

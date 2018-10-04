@@ -1,14 +1,27 @@
-<h1>Flatiron Secret Santa</h1>
 
-<hr>
-<h1>Sign Up to the future:</h1>
 
-<%= form_for @user, url: signup_path, method: :post do |f| %>
-  Username: <%= f.text_field :name %><br/><br/>
-  Email: <%= f.text_field :email %><br><br/>
-  Password: <%= f.password_field :password %><br><br/>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br><br/>
-  <%= f.submit "Submit" %>
-<% end %>
-
-<h4>Already Registered? <%= link_to "Login Here", root_path %> </h4>
+<div class="signup_form">
+  <h2>Join Flatiron Secret Santa</h2>
+  <div class="text-area">
+    <p><%= form_for @user, url: signup_path, method: :post do |f| %></p>
+    <div>
+      <p><%= f.label "Choose username:" %></p>
+      <p class="entry-area"><%= f.text_field :name %></p>
+    </div>
+    <div>
+      <p><%= f.label "Choose Email:" %></p>
+      <p class="entry-area"><%= f.text_field :email %></p>
+    </div>
+    <div>
+      <p><%= f.label "Password:" %></p>
+      <p class="entry-area"><%= f.password_field :password %></p>
+    </div>
+    <div>
+      <p><%= f.label "Password confirmation:" %></p>
+      <p class="entry-area"><%= f.password_field :password_confirmation %></p>
+    </div>
+    <p><%= f.submit "Submit" %></p>
+    <% end %>
+  </div>
+  <h4>Already Registered? <%= link_to "Login Here", root_path %> </h4>
+</div>

@@ -2,6 +2,7 @@
   <div class="create_group_form">
 
     <h3>You're just 2 steps away from creating a group...</h3>
+    <%= render "errors/errors" %>
     <div class="text-area">
       <p><%= form_for @group, url: groups_path, method: :post do |f| %></p>
       <div>

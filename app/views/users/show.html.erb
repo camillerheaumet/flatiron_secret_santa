@@ -43,13 +43,14 @@
       <% else %>
         <h3>Your wishlist is empty!</h3>
       <% end %>
-    
+
     </div>
 
     <div class="all_user_wishlists">
   <h4>All Users' Wishlist</h4>
   <ul>
-    <% User.all.each do |user| %>
+    <% all_users = User.all.sort_by {|user| user.name} %>
+    <% all_users.each do |user| %>
 
     <div class="modal fade" id="<%= user.name %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">

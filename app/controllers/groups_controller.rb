@@ -11,30 +11,45 @@ class GroupsController < ApplicationController
     @group = Group.new(name: params[:group][:name], budget: params[:group][:budget])
     # @user.groups.build(name: params[:group][:name], budget: params[:group][:budget])
 
-    if @group.save
+    if @group.valid?
+      @group.save
       Invitation.create(user_id: @user.id, group_id: @group.id, accepted?: false)
-      #@group.users << current_user
-      # Invitation.create(user_id: current_user.id, group_id: @group.id, accepted?: false)
-      @group.users << current_user
       redirect_to group_path(@group.id)
     else
       #When new page renders, the @error object with params is passed to the view
-      render :new
+      flash[:errors] = @group.errors.full_messages
+      redirect_to new_group_path
     end
   end
 
   def add_user
-    @group = Group.find(params[:id])
   end
 
   def create_user
     @group = Group.find(params[:id])
-    @user = User.new(name: params[:user][:name], email: params[:user][:email], password: "password", password_confirmation: "password")
-    if @user.save
-      Invitation.create(user_id: @user.id, group_id: @group.id, accepted?: false)
-      redirect_to group_path(@group.id)
+    find_user = User.find_by(email: params[:user][:email])
+    if find_user
+      if find_user.email == current_user.email
+        flash[:errors] = ["You are already in the draw"]
+        redirect_to add_user_path
+      elsif @group.users.include?(find_user)
+        flash[:errors] = ["This user is already in the draw"]
+        redirect_to add_user_path
+      else
+        # @user = User.find(params[:id])
+        Invitation.create(user_id: find_user.id, group_id: @group.id, accepted?: false)
+        redirect_to group_path(@group.id)
+      end
     else
-      redirect_to add_user_path
+      @user = User.new(name: params[:user][:name], email: params[:user][:email], password: "password", password_confirmation: "password")
+      if @user.valid?
+        @user.save
+        Invitation.create(user_id: @user.id, group_id: @group.id, accepted?: false)
+        redirect_to group_path(@group.id)
+      else
+        flash[:errors] = @user.errors.full_messages
+        redirect_to add_user_path
+      end
     end
     # name: params[:group]["users_attributes"]["0"]["name"], email: params[:group]["users_attributes"]["0"]["email"]
   end

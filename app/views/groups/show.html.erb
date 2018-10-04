@@ -4,7 +4,7 @@
   <div class="group_name">
     <h1><%= @group.name %></h1>
   </div>
-
+<%= render "errors/errors" %>
   <div class="">
     <h3>Max budget for Participants: £<%= @group.budget %> </h3>
   </div>
@@ -13,12 +13,48 @@
     <h2>Participants: <%= @group.users.length %></h2>
   </div>
 
-  <div class="">
+  <div class="user_wishlist">
     <% if @group.users.length > 0 %>
       <h3>Group Participants:</h3>
-      <% @group.users.each do |user| %>
-        <p><%= user.name %></p>
-        <% end %>
+    <ul>
+    <% all_users = @group.users.sort_by {|user| user.name} %>
+    <% all_users.each do |user| %>
+
+    <div class="modal fade" id="<%= user.name %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel"><%= user.name.capitalize %>'s wishlist</h4>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <% if user.gifts.length > 0 %>
+                <% user.gifts.each do |gift| %>
+                  <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
+                <% end %>
+              <% else %>
+                <p><%=user.name.capitalize%> doesn't have any wishlist yet!</p>
+              <% end %>
+            <ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<%= user.name %>">
+      <%= user.name %>
+    </button>
+    <!-- <% user = user%>
+      <li><%= link_to user.name, show_path %> </li> -->
+
+      <% end %>
+
+
+    </div>
+
         <% if @draws %>
           <% @draws.each do |draw| %>
               <%= "#{draw[0].name} == #{draw[1].name}"  %>

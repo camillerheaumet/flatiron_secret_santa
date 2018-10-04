@@ -24,9 +24,11 @@ class UsersController < ApplicationController
     @wishlist = @user.wishlist if @user.wishlist
     #We can then iterate over all gorups to show each memeber ina users groups
     @groups = @user.groups if @user.groups
-    wishlist_gifts = []
-    @wishlist.gifts.each do |gift|
-      wishlist_gifts << gift.name
+    if @gifts
+      wishlist_gifts = []
+      @wishlist.gifts.each do |gift|
+        wishlist_gifts << gift.name
+      end
     end
     flash[:notices] = wishlist_gifts
 

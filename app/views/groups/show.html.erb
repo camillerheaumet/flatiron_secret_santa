@@ -1,20 +1,47 @@
-<h1><%= @group.name %></h1>
-<h3> <%= @group.budget %> </h3>
 
-<h2>Participants: <%= @group.users.length %></h2> </h2>
+<div class="group_home">
 
-<h3>Group Participants:</h3>
-<ul>
-  <% @group.users.each do |user| %>
-  <li> <%= user.name %> </li>
-  <% end %>
-</ul>
-<%= button_to "Add Participants", add_user_path, method: :get %><br>
-<%= button_to "Make draw", draw_path, method: :post %><br>
-<%= button_to "Back to homepage", show_path, method: :get %>
+  <div class="group_name">
+    <h1><%= @group.name %></h1>
+  </div>
 
-<% if @draws %>
-  <% @draws.each do |draw| %>
-      <%= "#{draw[0].name} == #{draw[1].name}"  %>
-  <% end %>
-<% end %>
+  <div class="">
+    <h3>Max budget for Participants: £<%= @group.budget %> </h3>
+  </div>
+
+  <div class="">
+    <h2>Participants: <%= @group.users.length %></h2>
+  </div>
+
+  <div class="">
+    <% if @group.users.length > 0 %>
+      <h3>Group Participants:</h3>
+      <% @group.users.each do |user| %>
+        <p><%= user.name %></p>
+        <% end %>
+        <% if @draws %>
+          <% @draws.each do |draw| %>
+              <%= "#{draw[0].name} == #{draw[1].name}"  %>
+          <% end %>
+        <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="group_home_buttons">
+    <div class="">
+      <%= button_to "Add Participants", add_user_path, method: :get, :class => "group_buttons" %>
+    </div>
+
+    <div class="">
+      <%= button_to "Make draw", draw_path, method: :post, :class => "group_buttons" %>
+    </div>
+
+    <div class="">
+      <%= button_to "Back to homepage", show_path, method: :get, :class => "group_buttons" %>
+    </div>
+  </div>
+
+
+
+</div>

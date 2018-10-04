@@ -56,11 +56,174 @@ header .logged_out span {
 
 .signup_form .text-area {
   display: flex;
-  background-color: pink;
+
   width: 30rem;
   justify-content: center;
 }
 
-.signup_form .entry-area {
-  width: 25rem;
+.signup_form .text-area input {
+  width: 15rem;
+  height: 1.2rem;
+  text-align: center;
+}
+
+/* Login form  */
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.login_form .text-area {
+  display: flex;
+  width: 30rem;
+  justify-content: center;
+}
+
+.login_form .text-area input {
+  width: 15rem;
+  height: 1.2rem;
+  text-align: center;
+}
+
+
+/* USER HOME PAGE */
+
+.user_panel {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user_panel .user_event, .user_wishlist, .all_user_wishlists {
+  border: 1px solid #04b4e0;
+  border-radius: 5px;
+  width: 23rem;
+  height: 30rem;
+}
+
+.user_welcome {
+  height: 6rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.user_welcome h1 {
+
+}
+
+/* user event */
+
+.user_event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.user_event form {
+}
+
+.user_event form input {
+}
+
+
+/* user wishlist  */
+
+.user_wishlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_wishlist form {
+  /* height: 5rem; */
+}
+
+.user_wishlist form input {
+  /* height: 10rem;
+  font-size: 50rem; */
+}
+
+.all_user_wishlists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* GROUP CREATE HOMEPAGE */
+
+.create_group_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  height:
+}
+
+.create_group_form h4, h3 {
+  text-align: center;
+}
+
+.create_group_form h3 {
+  margin-top: 3rem;
+}
+
+.create_group_form .text-area {
+  display: flex;
+  width: 30rem;
+  justify-content: center;
+}
+
+.create_group_form .text-area input {
+  width: 15rem;
+  text-align: center;
+}
+
+.create_group_button {
+  height: 3rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+/* GROUP HOME PAGE */
+
+.group_home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group_name {
+  margin-top: 2rem;
+}
+
+.group_home_buttons input {
+  height: 3rem;
+  width: 15rem;
+  margin-bottom: 2rem;
+}
+
+.group_buttons {
+  height: 10rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.group_buttons:hover {
+  background-color: #008d43;
+}
+
+.heart {
+  height: 2rem;
 }

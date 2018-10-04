@@ -6,21 +6,21 @@
     <p><%= form_for @user, url: signup_path, method: :post do |f| %></p>
     <div>
       <p><%= f.label "Choose username:" %></p>
-      <p class="entry-area"><%= f.text_field :name %></p>
+      <p><%= f.text_field :name %></p>
     </div>
     <div>
       <p><%= f.label "Choose Email:" %></p>
-      <p class="entry-area"><%= f.text_field :email %></p>
+      <p><%= f.text_field :email %></p>
     </div>
     <div>
       <p><%= f.label "Password:" %></p>
-      <p class="entry-area"><%= f.password_field :password %></p>
+      <p><%= f.password_field :password %></p>
     </div>
     <div>
       <p><%= f.label "Password confirmation:" %></p>
-      <p class="entry-area"><%= f.password_field :password_confirmation %></p>
+      <p><%= f.password_field :password_confirmation %></p>
     </div>
-    <p><%= f.submit "Submit" %></p>
+    <p><%= f.submit "Submit", :class => 'button' %></p>
     <% end %>
   </div>
   <h4>Already Registered? <%= link_to "Login Here", root_path %> </h4>

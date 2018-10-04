@@ -1,6 +1,26 @@
 
-<%= form_for @group, url: groups_path, method: :post do |f| %>
-  <h3>Step 1: <%= f.label "name your group!" %> <%= f.text_field :name %></h3>
-  <h3>Step 2: <%= f.label "Set max individual budget:"%> <%= f.text_field :budget %></h3>
-  <h4><%= f.submit "Create group" %> </h4>
-<% end %>
+  <div class="create_group_form">
+
+    <h3>You're just 2 steps away from creating a group...</h3>
+    <div class="text-area">
+      <p><%= form_for @group, url: groups_path, method: :post do |f| %></p>
+      <div>
+        <p><%= f.label "Name your group:" %></p>
+        <p><%= f.text_field :name %></p>
+      </div>
+      <div>
+        <p><%= f.label "Set max individual budget £:" %></p>
+        <p><%= f.text_field :budget %></p>
+      </div>
+      <p><%= f.submit "Create group", :class => "create_group_button" %></p>
+      <% end %>
+    </div>
+
+    <div class="">
+      <%= button_to "Back to homepage", show_path, method: :get %>
+    </div>
+
+
+    <h4>Note: You will automatically be assigned to this group </h4>
+
+  </div>

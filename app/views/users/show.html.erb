@@ -1,31 +1,54 @@
-<h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name.capitalize}!" %> </h1>
 
+<div class="user_home">
 
-<%= link_to "Create a Secret Santa Event!", new_group_path %><br>
-<%= link_to "Creat your very own wishlist!", new_gift_path %>
+  <!-- message displays on top panel -->
+  <div class="user_welcome">
+    <h1>Welcome to Flatiron's Secret Santa <%= "#{current_user.name.capitalize}!" %> </h1>
+  </div>
 
-<% if !current_user.gifts.empty? %>
-  <h3>Your wishlist</h3>
-  <ul>
-    <% current_user.gifts.each do |gift| %>
-      <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
-      <%= link_to "Edit Gift", edit_gift_path(gift) %>
-      <%= form_tag gift_path(gift), method: "delete" do  %>
-        <%= submit_tag "Delete Gift" %>
+  <!-- users panel displays options -->
+  <div class="user_panel">
+
+    <!-- user able to execute different options  -->
+    <div class="user_event">
+      <h2>Create a new event!</h2>
+      <p><%= button_to "Create an Event", new_group_path, method: :get %></p>
+      <% if @user.groups.length > 0 %>
+        <h3>Your events:</h3>
+        <% current_user.groups.each do |group| %>
+          <div class="user_event_info">
+            <p><%= link_to group.name, group %></p>
+            <p><%= button_to "Delete event", group_path(group), method: :delete %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <h3>You have not created any events yet!</h3>
       <% end %>
-    <% end %>
-  </ul>
-<% else %>
-  <h3>Your wishlist is empty!</h3>
-<% end %>
+    </div>
+
+    <div class="user_wishlist">
+      <h2>Create a new wishlist!</h2>
+      <p><%= button_to "Add to your wishlist", new_gift_path, method: :get %></p>
+      <% if !current_user.gifts.empty? %>
+        <h3>Your wishlist</h3>
+          <% current_user.gifts.each do |gift| %>
+            <div class="">
+              <p><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </p>
+              <p><%= link_to "Edit Gift", edit_gift_path(gift) %></p>
+              <%= form_tag gift_path(gift), method: "delete" do  %>
+                <p><%= submit_tag "Delete Gift" %></p>
+              <% end %>
+            </div>
+          <% end %>
+      <% else %>
+        <h3>Your wishlist is empty!</h3>
+      <% end %>
+    </div>
+
+    <div class="all_user_wishlists">
+      <h3>See your friends wishlist</h3>
+    </div>
+  </div>
 
 
-<% if !@user.groups.empty? %>
-  <% current_user.groups.each do |group| %>
-    <h4><%= group.name %></h4>
-  <% end %>
-  <% else %>
-  <h3>You are not registered to any groups!</h3>
-<% end %>
-
-<%= button_to "Logout", logout_path, method: :delete %><br>
+</div>

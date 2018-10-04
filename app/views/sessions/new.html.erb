@@ -1,12 +1,19 @@
-<h1>Flatiron Secret Santa</h1>
 
-<hr>
-  <h1>Login</h1>
 
-  <%= form_for @user, url: login_path, method: :post do |f| %>
-    Username: <%= f.text_field :name %><br/><br/>
-    Password: <%= f.password_field :password %><br/><br/>
-    <%= f.submit "Submit" %>
-  <% end %>
-
-  <h4>New? <%= link_to "Register Here", signup_path %></h4>
+  <div class="login_form">
+    <h2>Login to Flatiron Secret Santa</h2>
+    <div class="text-area">
+      <p><%= form_for @user, url: login_path, method: :post do |f| %></p>
+      <div>
+        <p><%= f.label "Username:" %></p>
+        <p><%= f.text_field :name %></p>
+      </div>
+      <div>
+        <p><%= f.label "Password:" %></p>
+        <p><%= f.text_field :password %></p>
+      </div>
+      <p><%= f.submit "Submit" %></p>
+      <% end %>
+    </div>
+    <h4>New? <%= link_to "Login Here", signup_path %> </h4>
+  </div>

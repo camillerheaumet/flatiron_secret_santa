@@ -1,11 +1,11 @@
 class Group < ApplicationRecord
   has_many :invitations
   has_many :users, through: :invitations
-  validates :name, presence: true
   has_many :draws
   accepts_nested_attributes_for :users
 
-
+  validates :name, uniqueness: true, presence: true
+  validates :budget, presence: true
 
   def draw_order
     users = self.users

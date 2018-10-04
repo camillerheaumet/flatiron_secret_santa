@@ -28,4 +28,69 @@
   <h3>You are not registered to any groups!</h3>
 <% end %>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="all_user_wishlists">
+  <h4>All Users' Wishlist</h4>
+  <ul>
+    <% User.all.each do |user| %>
+
+    <div class="modal fade" id="<%= user.name %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel"><%= user.name.capitalize %>'s wishlist</h4>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <% if user.gifts.length > 0 %>
+                <% user.gifts.each do |gift| %>
+                  <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
+                <% end %>
+              <% else %>
+                <p><%=user.name.capitalize%> doesn't have any wishlist yet!</p>
+              <% end %>
+            <ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<%= user.name %>">
+      <%= user.name %>
+    </button>
+    <!-- <% user = user%>
+      <li><%= link_to user.name, show_path %> </li> -->
+
+      <% end %>
+
+
+
+</div>
+
+
+
+
+
 <%= button_to "Logout", logout_path, method: :delete %><br>

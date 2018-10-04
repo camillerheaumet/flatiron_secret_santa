@@ -6,15 +6,29 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    return redirect_to root_path flash[:errors] = ["Invalid username or password"] unless @user.save
-    session[:user_id] = @user.id
-    redirect_to controller: 'users', action: 'show'
+    if @user.valid?
+      @user.save
+      session[:user_id] = @user.id
+      flash[:success] = 'Account created'
+      redirect_to controller: 'users', action: 'show'
+    elsif @user.errors.full_messages.include?("Email has already been taken")
+      flash[:errors] = ["Oups... it seams that you already have an account!"]
+      redirect_to signup_path
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect_to signup_path
+    end
   end
 
   def show
     @wishlist = @user.wishlist if @user.wishlist
     #We can then iterate over all gorups to show each memeber ina users groups
     @groups = @user.groups if @user.groups
+    wishlist_gifts = []
+    @wishlist.gifts.each do |gift|
+      wishlist_gifts << gift.name
+    end
+    flash[:notices] = wishlist_gifts
 
     #if user.group if invition.accepted? == yes, we display group
     #@user.groups.select {|group| group.accepted == true }

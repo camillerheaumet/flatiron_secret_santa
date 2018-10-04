@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @user.groups.build(name: params[:group][:name], budget: params[:group][:budget])
     if @group.save
-      #@group.users << current_user
+      @group.users << current_user
       # Invitation.create(user_id: current_user.id, group_id: @group.id, accepted?: false)
       redirect_to group_path(@group.id)
     else
@@ -44,11 +44,16 @@ class GroupsController < ApplicationController
 
   def make_draw
     @group = Group.find(params[:id])
-    @draws = @group.draw_order
-      # send_draw(@group)
-    render :show
-    # redirect_to group_path(@group.id)
-    #call send draw
+    if @group.users.length > 4
+      @draws = @group.draw_order
+        # send_draw(@group)
+      render :show
+      # redirect_to group_path(@group.id)
+      #call send draw
+    else
+      flash[:errors] = ["You need at least 5 participants. Please add #{5-@group.users.length} more participants."]
+      redirect_to group_path(@group)
+    end
   end
 
   def edit

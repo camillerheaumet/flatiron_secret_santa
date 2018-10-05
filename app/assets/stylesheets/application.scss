@@ -16,10 +16,14 @@
 
 @import "bootstrap";
 
-html {
+body {
   font-size: 16px; /*set root height*/
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
+
+// h2 {
+//   font-family: 'Open Sans', sans-serif !important;
+// }
 
 a {
   text-decoration: none;
@@ -43,6 +47,22 @@ header .logged_out span {
   font-size: 1.3rem;
 }
 
+header .logged_in span {
+  margin-top: 3.4rem;
+  margin-right: 4rem;
+  font-size: 1.3rem;
+}
+
+.logged_in_button, .logged_out_button {
+  text-decoration: none !important;
+  color: white;
+}
+
+.logged_in span {
+  font-family: 'Lobster', cursive;
+  letter-spacing: 2px;
+}
+
 
 /* New sign up  */
 
@@ -58,16 +78,48 @@ header .logged_out span {
 
 .signup_form .text-area {
   display: flex;
-
   width: 30rem;
   justify-content: center;
 }
 
-.signup_form .text-area input {
-  width: 15rem;
-  height: 1.2rem;
-  text-align: center;
+.signup_form h2 {
+  margin-top: 2rem;
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
+  color: green;
 }
+
+.signup_form h4 {
+  font-size: 1rem;
+  margin-bottom: 4rem;
+}
+
+.signup_form .text-area input {
+  width: 17rem;
+  border-radius: 3px;
+}
+
+.signup_label {
+  font-size: 1.2rem;
+  margin-bottom: -2rem;
+}
+
+.signup_form input {
+  width: 12rem;
+}
+
+.signup_button {
+  height: 3rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.signup_button:hover {
+  background-color: green;
+}
+
 
 /* Login form  */
 
@@ -87,14 +139,53 @@ header .logged_out span {
   justify-content: center;
 }
 
-.login_form .text-area input {
-  width: 15rem;
-  height: 1.2rem;
+.login_form h2 {
+  margin-top: 2rem;
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
+  color: green;
   text-align: center;
 }
 
+.login_form .text-area input {
+  width: 17rem;
+  border-radius: 3px;
+}
 
-/* USER HOME PAGE */
+.login_label {
+  font-size: 1.2rem;
+  margin-bottom: -2rem;
+}
+
+.login_button {
+  height: 3rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.login_button:hover {
+  background-color: green;
+}
+
+
+.login_form h4 {
+  font-size: 1.3rem;
+}
+
+
+
+
+/* USER HOME SHOW PAGE */
+
+.user_home {
+  background-position: center;
+  background-size: cover;
+  // background-image: url('christmas_background_green.jpg');
+  height: 45rem;
+  background-color: #fffbe5;
+}
 
 .user_panel {
   display: flex;
@@ -102,21 +193,32 @@ header .logged_out span {
 }
 
 .user_panel .user_event, .user_wishlist, .all_user_wishlists {
-  border: 1px solid #04b4e0;
+  // border: 2px solid #ea0022;
   border-radius: 5px;
   width: 23rem;
   height: 30rem;
+  background-color: white;
 }
 
 .user_welcome {
-  height: 6rem;
+  height: 9rem;
   text-align: center;
   padding-top: 1rem;
 }
 
 .user_welcome h1 {
-
+  margin-top: 1.5rem;
+  margin-bottom: 8rem;
+  font-size: 3rem;
+  color: green;
+  text-shadow: 2px 2px black;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 2px;
 }
+
+// .user_welcome h1 span {
+//   color: #04b4e0;
+// }
 
 /* user event */
 
@@ -124,13 +226,56 @@ header .logged_out span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 
 }
 
-.user_event form {
+.create_event_button {
+  height: 3rem;
+  background-color: grey;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  color: white;
+  width: 15rem;
+  margin-top: 2rem;
 }
 
-.user_event form input {
+.create_event_button:hover {
+  background-color: #04b4e0;
+}
+
+.no_event {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.user_event_info {
+  text-align: center;
+  border-top: 2px solid black;
+  padding-top: 0.5rem;
+  width: 10rem;
+}
+
+#bonjo {
+  font-size: 1.5rem;
+}
+
+.group_link {
+  margin-bottom: 50rem;
+}
+
+.delete_event {
+  height: 1.6rem;
+  background-color: grey;
+  font-size: 0.6rem;
+  border-radius: 5px;
+  color: white;
+  width: 6rem;
+  margin-top: -2rem;
+}
+
+.delete_event:hover {
+  background-color: red;
 }
 
 
@@ -140,24 +285,173 @@ header .logged_out span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 }
 
-.user_wishlist form {
-  /* height: 5rem; */
+.create_wish_button {
+  height: 3rem;
+  background-color: grey;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  color: white;
+  width: 15rem;
+  margin-top: 2rem;
 }
 
-.user_wishlist form input {
-  /* height: 10rem;
-  font-size: 50rem; */
+
+.create_wish_button:hover {
+  background-color: #04b4e0;
 }
+
+.no_wish {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.user_wishlist_info {
+  text-align: center;
+  border-top: 2px solid black;
+  padding-top: 0.5rem;
+  width: 10rem;
+}
+
+#not_empty {
+  font-size: 1.5rem;
+}
+
+.gift_link {
+  margin-bottom: 50rem;
+}
+
+.remove_gift {
+  height: 1.6rem;
+  background-color: grey;
+  font-size: 0.6rem;
+  border-radius: 5px;
+  color: white;
+  width: 6rem;
+  margin-top: -2rem;
+}
+
+.remove_gift:hover {
+  background-color: red;
+}
+
+
+// All user wishlist
+
 
 .all_user_wishlists {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: space-around;
+  overflow: scroll;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* GROUP CREATE HOMEPAGE */
+#wishlist_title {
+  text-align: center;
+  margin-top: 3.6rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #04b4e0;
+}
+
+.btn.btn-primary.btn-lg {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  background-color: #04b4e0;
+  border-color: #04b4e0;
+}
+
+// CREATE GIFT
+
+.create_gift_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create_gift_form .text-area {
+  width: 17rem;
+}
+
+.create_gift_form h2 {
+  margin-top: 2rem;
+}
+
+.create_gift_label {
+  font-size: 1.4rem;
+  margin-bottom: -2rem;
+}
+
+.create_gift_form input {
+  width: 12rem;
+}
+
+.create_group_button {
+  height: 3rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.create_gift_button {
+  height: 3rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.create_gift_form .home_page_button {
+  height: 2rem;
+  background-color: grey;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+
+
+//  .select {
+//   margin-left: 1rem;
+// }
+
+
+
+
+// .all_user_wishlists h2 {
+//
+//   margin-top: 1rem;
+//   font-size: 1rem;
+// }
+
+// .create_wish_button {
+//   height: 3rem;
+//   background-color: grey;
+//   font-size: 1.5rem;
+//   border-radius: 5px;
+//   color: white;
+//   width: 15rem;
+//   margin-top: 2rem;
+// }
+//
+// .create_wish_button:hover {
+//   background-color: #04b4e0;
+// }
+//
+// .no_wish {
+//   margin-top: 1rem;
+//   font-size: 1rem;
+// }
+
+/* GROUP CREATE PAGE */
 
 .create_group_form {
   display: flex;
@@ -169,18 +463,39 @@ header .logged_out span {
   // height:
 }
 
-.create_group_form h4, h3 {
+.create_group_form h4, p {
   text-align: center;
 }
 
 .create_group_form h3 {
   margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.create_group_form p {
+  margin-top: 1rem;
+}
+
+.create_group_form .home_page_button {
+  height: 2rem;
+  background-color: grey;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.create_group_label {
+  font-size: 1.1rem;
 }
 
 .create_group_form .text-area {
   display: flex;
   width: 30rem;
   justify-content: center;
+}
+
+.create_group_form .text-area div p {
+  margin-top: -0.5rem;
 }
 
 .create_group_form .text-area input {
@@ -206,6 +521,34 @@ header .logged_out span {
 
 .group_name {
   margin-top: 2rem;
+  font-family: 'Lobster', cursive;
+  margin-bottom: 1rem;
+}
+
+.group_name h1 {
+  font-size: 3.5rem;
+  color: #008d43;
+}
+
+.group_max {
+  margin-bottom: 1rem;
+}
+
+.group_participants {
+  margin-bottom: 1rem;
+}
+
+.Participanting_members {
+  font-size: 1.3rem;
+  color: #008d43;
+}
+
+.event_member_list {
+  margin-bottom: 1.5rem;
+}
+
+.event_member_list h4 {
+  margin-bottom: 1.7rem;
 }
 
 .group_home_buttons input {
@@ -226,6 +569,92 @@ header .logged_out span {
   background-color: #008d43;
 }
 
-.heart {
+// Group draw
+
+.pair_draw_box {
+  margin-bottom: 3rem;
+}
+
+#draw_made_heading {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.person_name {
+  font-size: 1.3rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  background-color: green;
+  width: 10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+// Add friend
+
+.add_friends_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add_friends_form h1 {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  color: #008d43;
+}
+
+
+.add_friends_form h3 {
+  text-align: center;
+
+}
+
+.friend_label {
+  font-size: 1.1rem;
+}
+
+
+.add_friends_form .add_friend_button {
+  height: 3rem;
+  background-color: #04b4e0;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.add_friends_form .home_page_button {
   height: 2rem;
+  background-color: grey;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+}
+
+
+.add_friends_form .text-area {
+  display: flex;
+  width: 30rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.add_friends_form .text-area input {
+  width: 15rem;
+  text-align: center;
+}
+
+
+.add_friends_form .text-area div p {
+  margin-top: -0.5rem;
 }

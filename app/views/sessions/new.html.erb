@@ -5,14 +5,14 @@
     <div class="text-area">
       <p><%= form_for @user, url: login_path, method: :post do |f| %></p>
       <div>
-        <p><%= f.label "Username:" %></p>
+        <p><%= f.label "Username:", :class => "login_label" %></p>
         <p><%= f.text_field :name %></p>
       </div>
       <div>
-        <p><%= f.label "Password:" %></p>
+        <p><%= f.label "Password:", :class => "login_label" %></p>
         <p><%= f.text_field :password %></p>
       </div>
-      <p><%= f.submit "Submit" %></p>
+      <p class="hype"><%= f.submit "Submit", :class => "login_button" %></p>
       <% end %>
     </div>
     <h4>New? <%= link_to "Login Here", signup_path %> </h4>

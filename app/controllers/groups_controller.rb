@@ -15,7 +15,6 @@ class GroupsController < ApplicationController
       Invitation.create(user_id: @user.id, group_id: @group.id, accepted?: false)
       #@group.users << current_user
       # Invitation.create(user_id: current_user.id, group_id: @group.id, accepted?: false)
-      @group.users << current_user
       redirect_to group_path(@group.id)
     else
       #When new page renders, the @error object with params is passed to the view

@@ -5,22 +5,22 @@
     <div class="text-area">
       <p><%= form_for @group, url: groups_path, method: :post do |f| %></p>
       <div>
-        <p><%= f.label "Name your group:" %></p>
+        <p><%= f.label "Name your group:", :class => "create_group_label" %></p>
         <p><%= f.text_field :name %></p>
       </div>
       <div>
-        <p><%= f.label "Set max individual budget £:" %></p>
+        <p><%= f.label "Set max individual budget £:", :class => "create_group_label" %></p>
         <p><%= f.text_field :budget %></p>
       </div>
       <p><%= f.submit "Create group", :class => "create_group_button" %></p>
       <% end %>
     </div>
 
-    <div class="">
-      <%= button_to "Back to homepage", show_path, method: :get %>
+    <div >
+      <%= button_to "Back to homepage", show_path, method: :get, :class => "home_page_button" %>
     </div>
 
 
-    <h4>Note: You will automatically be assigned to this group </h4>
+    <p>Note: You will automatically be assigned to this group </p>
 
   </div>

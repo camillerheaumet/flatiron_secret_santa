@@ -16,8 +16,8 @@
   justify-content: center;
   background-position: center;
   background-size: cover;
-  background-image: url('xmas_dog_bw_resized.jpg');
-  height: 33rem;
+  background-image: url('puppy_resized_2.jpg');
+  height: 40rem;
 }
 
 .main_welcome h1 {
@@ -25,8 +25,19 @@
   color: white;
   text-shadow: 2px 2px black;
   font-size: 4rem;
+  font-family: 'Lobster', cursive;
 }
 
-.test {
-  background-color: orange;
+
+footer {
+  position: fixed;
+  height: 3rem;
+  background-color: #04b4e0;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.heart {
+  padding-top: 0.6rem;
 }

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html id="overide-bootstrap">
   <head>
     <title>FlatironSecretSanta</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,15 +23,15 @@
             <!--ID attibute used to target for media queries-->
             <% if logged_in? %>
               <div class="logged_in">
-                <span>Hi <%= current_user.name %>! </span>
+                <span>You are logged in as <%= current_user.name.capitalize %>! </span>
 
-                <span><%= link_to "Your account", show_path %> </span>
-                <span> <%= link_to "Logout", logout_path, method: :delete %> </span>
+                <span><%= link_to "Your account", show_path, :class => "logged_in_button" %> </span>
+                <span> <%= link_to "Logout", logout_path, method: :delete, :class => "logged_in_button"  %> </span>
               </div>
             <% else %>
               <div class="logged_out">
-                <span> <%= link_to "Sign Up", signup_path %> </span>
-                <span> <%= link_to "Login", login_path %> </span>
+                <span> <%= link_to "Sign Up", signup_path, :class => "logged_out_button" %> </span>
+                <span> <%= link_to "Login", login_path, :class => "logged_out_button" %> </span>
               </div>
             <% end %>
         </nav>
@@ -39,6 +42,6 @@
     <%= yield %>
   </body>
   <!-- <footer>
-    <div class="heart"><%= image_tag("heart.png") %> </span></div>
+    <div class="heart"><%= image_tag("heart.png") %></div>
   </footer> -->
 </html>

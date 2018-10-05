@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-      flash[:success] = 'Account created'
       redirect_to controller: 'users', action: 'show'
+      flash[:success] = 'Account created'
     elsif @user.errors.full_messages.include?("Email has already been taken")
       flash[:errors] = ["Oups... it seams that you already have an account!"]
       redirect_to signup_path

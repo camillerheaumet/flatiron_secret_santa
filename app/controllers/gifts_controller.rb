@@ -16,8 +16,13 @@ class GiftsController < ApplicationController
   def create
     @wishlist = Wishlist.find_or_create_by(user: current_user)
     @gift = Gift.new(name: params[:gift][:name], price: params[:gift][:price], description: params[:gift][:description], wishlist_id: @wishlist.id)
-    @gift.save
-    redirect_to show_path
+    if @gift.valid?
+      @gift.save
+      redirect_to show_path
+    else
+      flash[:errors] = @gift.errors.full_messages
+      redirect_to new_gift_path
+    end
   end
 
   def edit

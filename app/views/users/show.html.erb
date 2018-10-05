@@ -33,7 +33,11 @@
         <h3>Your wishlist</h3>
           <% current_user.gifts.each do |gift| %>
             <div class="">
-              <p><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </p>
+              <% if gift.price %>
+                <p><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </p>
+              <% else %>
+                <p><%= link_to gift.name, gift %></p>
+              <% end %>
               <p><%= link_to "Edit Gift", edit_gift_path(gift) %></p>
               <%= form_tag gift_path(gift), method: "delete" do  %>
                 <p><%= submit_tag "Delete Gift" %></p>
@@ -62,7 +66,11 @@
             <ul>
               <% if user.gifts.length > 0 %>
                 <% user.gifts.each do |gift| %>
-                  <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
+                <% if gift.price %>
+                  <p><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </p>
+                <% else %>
+                  <p><%= link_to gift.name, gift %></p>
+                <% end %>
                 <% end %>
               <% else %>
                 <p><%=user.name.capitalize%> doesn't have any wishlist yet!</p>

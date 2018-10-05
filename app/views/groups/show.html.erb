@@ -30,7 +30,11 @@
             <ul>
               <% if user.gifts.length > 0 %>
                 <% user.gifts.each do |gift| %>
-                  <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
+                  <% if gift.price %>
+                    <li><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </li>
+                  <% else %>
+                    <li><%= link_to gift.name, gift %></li>
+                  <% end %>
                 <% end %>
               <% else %>
                 <p><%=user.name.capitalize%> doesn't have any wishlist yet!</p>

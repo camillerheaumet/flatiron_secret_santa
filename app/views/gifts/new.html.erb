@@ -1,6 +1,7 @@
 
 <div class="create_gift_form">
   <h2>Create a new gift</h2>
+  <%= render "errors/errors" %>
   <div class="text-area">
     <p><%= form_for @gift, url: gifts_path, method: :post do |f| %></p>
     <div>

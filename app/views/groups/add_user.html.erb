@@ -1,5 +1,4 @@
 
-
 <div class="add_friends_form">
   <h1>Hi <%= current_user.name.capitalize %>! </h1>
 
@@ -7,6 +6,8 @@
 
     <h3>Add friends to your group!</h3>
 
+    <p><%= render "errors/errors" %></p>
+    
     <p><%= form_for @user, url: add_user_path, method: :post do |f| %></p>
     <div>
       <p><%= f.label "Name:", :class => "friend_label" %></p>

@@ -2,6 +2,7 @@
 
   <div class="login_form">
     <h2>Login to Flatiron Secret Santa</h2>
+    <%= render "errors/errors" %>
     <div class="text-area">
       <p><%= form_for @user, url: login_path, method: :post do |f| %></p>
       <div>

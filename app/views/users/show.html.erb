@@ -1,0 +1,90 @@
+
+<div class="user_home">
+
+  <!-- message displays on top panel -->
+  <div class="user_welcome">
+    <h1>Welcome to Flatiron's Secret Santa <span><%= "#{current_user.name.capitalize}!" %></span></h1>
+  </div>
+
+  <!-- users panel displays options -->
+  <div class="user_panel">
+
+    <!-- user able to execute different options  -->
+    <div class="user_event">
+      <p><%= button_to "Create an Event", new_group_path, method: :get, :class => 'create_event_button' %></p>
+      <% if @user.groups.length > 0 %>
+        <h3 id="bonjo">Your events:</h3>
+        <% current_user.groups.each do |group| %>
+          <div class="user_event_info">
+            <p><%= link_to group.name, group, :class => "group_link" %></p>
+            <p><%= button_to "Delete event", group_path(group), method: :delete, :class => "delete_event" %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <h3 class="no_event">You have not created any events yet!</h3>
+      <% end %>
+    </div>
+
+    <div class="user_wishlist">
+      <p><%= button_to "Add to your wishlist", new_gift_path, method: :get, :class => 'create_wish_button' %></p>
+      <% if !current_user.gifts.empty? %>
+        <h3 id="not_empty">Your wishlist</h3>
+          <% current_user.gifts.each do |gift| %>
+              <% if gift.price %>
+                <div class="user_wishlist_info">
+                  <p><%= link_to gift.name, gift,:class => "gift_link" %> %> <%= " and its only £#{gift.price}!" %> </p>
+                  <p><%= button_to "Delete Gift", gift_path(gift), method: :delete, :class => "remove_gift" %></p>
+                </div>
+                <% else %>
+                  <p><%= link_to gift.name, gift, :class => "gift_link" %> </p>
+              <% end %>
+              <% end %>
+      <% else %>
+        <h3 class="no_wish" >Your wishlist is empty!</h3>
+      <% end %>
+    </div>
+
+
+    <div class="all_user_wishlists">
+      <h2 id="wishlist_title">All Users' Wishlist</h2>
+      <ul>
+        <% User.all.each do |user| %>
+
+        <div class="modal fade select" id="<%= user.name %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><%= user.name.capitalize %>'s wishlist</h4>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <% if user.gifts.length > 0 %>
+                    <% user.gifts.each do |gift| %>
+                    <% if gift.price %>
+                      <p><%= link_to gift.name, gift %> <%= " and its only £#{gift.price}!" %> </p>
+                    <% else %>
+                      <li><%= link_to gift.name, gift %> </li>
+                    <% end %>
+                    <% end %>
+                  <% else %>
+                    <p><%=user.name.capitalize%> doesn't have any wishlist yet!</p>
+                  <% end %>
+                <ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<%= user.name %>">
+        <%= user.name %>
+      </button>
+      <% end %>
+
+
+    </div>
+
+
+</div>

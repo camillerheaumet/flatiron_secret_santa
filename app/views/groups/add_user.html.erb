@@ -1,0 +1,29 @@
+
+<div class="add_friends_form">
+  <h1>Hi <%= current_user.name.capitalize %>! </h1>
+
+  <div class="text-area">
+
+    <h3>Add friends to your group!</h3>
+
+    <p><%= render "errors/errors" %></p>
+    
+    <p><%= form_for @user, url: add_user_path, method: :post do |f| %></p>
+    <div>
+      <p><%= f.label "Name:", :class => "friend_label" %></p>
+      <p><%= f.text_field :name %></p>
+    </div>
+    <div>
+      <p><%= f.label "Their email:", :class => "friend_label" %></p>
+      <p><%= f.text_field :email %></p>
+    </div>
+    <p><%= f.submit "Add friend", :class => "add_friend_button" %></p>
+    <% end %>
+
+  </div>
+
+  <div>
+    <%= button_to "Back to homepage", show_path, method: :get, :class => "home_page_button" %>
+  </div>
+
+</div>

@@ -1,6 +1,14 @@
 class User < ApplicationRecord
-  has_one :wish_list
-  has_many :gifts, through: :wish_list
-  has_many :user_groups
-  has_many :groups, through: :user_groups
+  has_many :invitations
+  has_many :groups, through: :invitations
+  has_one :wishlist
+  has_many :gifts, through: :wishlist
+  has_secure_password
+
+  validates :name, uniqueness: true, presence: true
+  validates :email, uniqueness: true, presence: true
+  validates :password, presence: true
+
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+
 end

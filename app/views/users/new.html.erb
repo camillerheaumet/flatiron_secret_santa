@@ -1,0 +1,28 @@
+
+
+<div class="signup_form">
+  <h2>Join Flatiron Secret Santa</h2>
+  <p><%= render "errors/errors" %></p> 
+  <div class="text-area">
+    <p><%= form_for @user, url: signup_path, method: :post do |f| %></p>
+    <div>
+      <p><%= f.label "Choose username:", :class => "signup_label" %></p>
+      <p><%= f.text_field :name %></p>
+    </div>
+    <div>
+      <p><%= f.label "Choose Email:", :class => "signup_label" %></p>
+      <p><%= f.text_field :email %></p>
+    </div>
+    <div>
+      <p><%= f.label "Password:", :class => "signup_label" %></p>
+      <p><%= f.password_field :password %></p>
+    </div>
+    <div>
+      <p><%= f.label "Password confirmation:", :class => "signup_label" %></p>
+      <p><%= f.password_field :password_confirmation %></p>
+    </div>
+    <p><%= f.submit "Submit", :class => 'button', :class => "signup_button" %></p>
+    <% end %>
+  </div>
+  <h4>Already Registered? <%= link_to "Login Here", login_path %> </h4>
+</div>

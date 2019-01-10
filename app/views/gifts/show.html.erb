@@ -1,0 +1,19 @@
+<h1> <%= @gift.name %> </h1>
+
+<% if @gift.price %>
+  <p>Price: £<%= @gift.price %></p>
+<% else %>
+  <p>There is no price.</p>
+<% end %>
+
+<% if !@gift.description.empty? %>
+  <p>Description :</p>
+  <p><%= @gift.description %></p>
+<% else %>
+  <p>There is no description.</p>
+<% end %>
+
+
+<%= link_to "Edit Gift", edit_gift_path(@gift) %>
+
+<%= link_to "Go back", show_path %>

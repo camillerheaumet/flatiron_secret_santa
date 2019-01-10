@@ -1,0 +1,67 @@
+
+<%= render "errors/errors" %>
+
+
+
+<div class="group_home">
+  <% if @draws %>
+
+
+  <div class="group_name">
+    <h1><%= @group.name %></h1>
+  </div>
+
+  <div class="group_max">
+    <h4>Max budget for Participants: £<%= @group.budget %> </h4>
+  </div>
+
+  <div class="group_participants">
+    <h4>Participants: <%= @group.users.length %></h4>
+  </div>
+
+
+
+  <h3 id="draw_made_heading">The draw has been made!</h3>
+    <% @draws.each do |draw| %>
+        <p class="pair_draw_box"><span class="person_name"><%= "#{draw[0].name}"%></span>  <span class="cracker_image"><%= image_tag("christmas_cracker.png") %></span> <span class="person_name"><%="#{draw[1].name}" %></span></p>
+    <% end %>
+
+    <% else %>
+
+      <div class="group_name">
+        <h1><%= @group.name %></h1>
+      </div>
+
+      <div class="group_max">
+        <h4>Max budget for Participants: £<%= @group.budget %> </h4>
+      </div>
+
+      <div class="group_participants">
+        <h4>Participants: <%= @group.users.length %></h4>
+      </div>
+
+      <div class="event_member_list">
+        <% if @group.users.length > 0 %>
+          <h4>Participants names:</h4>
+          <% @group.users.each do |user| %>
+            <p class="Participanting_members"><%= user.name.capitalize %></p>
+            <% end %>
+            <% end %>
+      </div>
+
+  <% end %>
+  <div class="group_home_buttons">
+    <div class="">
+      <%= button_to "Add Participants", add_user_path, method: :get, :class => "group_buttons" %>
+    </div>
+
+    <div class="">
+      <%= button_to "Make draw", draw_path, method: :post, :class => "group_buttons" %>
+    </div>
+
+    <div class="">
+      <%= button_to "Back to homepage", show_path, method: :get, :class => "group_buttons" %>
+    </div>
+  </div>
+
+</div>

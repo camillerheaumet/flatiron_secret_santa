@@ -1,0 +1,26 @@
+
+<div class="create_gift_form">
+  <h2>Create a new gift</h2>
+  <%= render "errors/errors" %>
+  <div class="text-area">
+    <p><%= form_for @gift, url: gifts_path, method: :post do |f| %></p>
+    <div>
+      <p><%= f.label "Name:", :class => "create_gift_label" %></p>
+      <p><%= f.text_field :name %></p>
+    </div>
+    <div>
+      <p><%= f.label "Price in £:", :class => "create_gift_label" %></p>
+      <p><%= f.text_field :price %></p>
+    </div>
+    <div>
+      <p><%= f.label "Description:", :class => "create_gift_label" %></p>
+      <p><%= f.text_field :description %></p>
+    </div>
+    <p><%= f.submit "Create", :class => "create_gift_button" %></p>
+    <% end %>
+  </div>
+
+  <div >
+    <%= button_to "Back to homepage", show_path, method: :get, :class => "home_page_button" %>
+  </div>
+</div>

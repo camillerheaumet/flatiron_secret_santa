@@ -1,0 +1,13 @@
+<h1><%=@user.name%>'s Wishlist</h1>
+
+<%= link_to "New wish", new_gift_path %>
+
+<ul>
+  <% @gifts.each do |gift| %>
+    <li><%= link_to gift.name, gift %></li>
+    <%= link_to "Edit Gift", edit_gift_path(gift) %>
+    <%= form_tag gift_path(gift), method: "delete" do  %>
+      <%= submit_tag "Delete Gift" %>
+    <% end %>
+  <% end %>
+</ul>
